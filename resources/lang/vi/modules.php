@@ -38,7 +38,9 @@ return array (
                 'type' => 'Loại tài khoản',
                 'permissions' => 'Quyền hạn',
             ),
-        )
+        ),
+        'login' => 'Đăng nhập',
+        'forgot' => 'Quên mật khẩu'
     ),
     'menuuser' => array(
         'onlineclass' => 'Khóa Học Trực Tuyến',

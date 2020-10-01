@@ -22,30 +22,22 @@
     <script src="js/bootstrap.min.js" rel="stylesheet"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 </head>
 
-<body>
-    <header class="container-fluid" id="header-admin">
-        <div class="row py-2">
-            <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-                <h4>@lang('modules.dashboard.dashboard-title')</h4>
-                <label class="switch">
-                    <input type="checkbox" checked onclick="myFunction()">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4" style="text-align: right">
-                <button class="btn dropdown dropdown-toggle" data-toggle="dropdown" id="adminbtn">
-                    <span>Admin</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminbtn">
-                    <a class="dropdown-item" href="#">@lang('modules.admin.profile')</a>
-                    <a class="dropdown-item" href="#">@lang('modules.admin.logout')</a>
-                </div>
-            </div>
-        </div>
-    </header>
+<body class="bg-login">
+    <section class="container">
+        <form action="" class="form-login">
+            <h2>@lang('modules.dashboard.dashboard-title')</h2>
+            <h5>@lang('modules.dashboard.forgot')</h5>
+            <input type="email" class="form-control" placeholder="Nhập email của bạn" >
+
+            <a href="#" class="signin_signin">Yêu cầu</a>
+            <a href="#"><i class="fas fa-undo"></i>Trở về</a>
+        </form>
+    </section>
+
+</body>
+</html>
 
 
 

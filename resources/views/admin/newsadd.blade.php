@@ -11,6 +11,29 @@
 
 @section('content-body')
     <form action="" class="change-form">
+        <div class="image-upload">
+            <label for="img-add">
+                <img src="img/addimg.png" id="addimg">
+            </label>
+            <input type="file" name="file" id="img-add">
+        </div>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#addimg').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#img-add").change(function(){
+                readURL(this);
+            });
+        </script>
         <label for="" class="control-label">@lang('modules.news.name')</label>
         <input class="form-control" required>
         <label for="" class="control-label">@lang('modules.news.summary')</label>
@@ -21,3 +44,5 @@
         <button class="btn-back">@lang('modules.back')</button>
     </form>
 @endsection
+
+

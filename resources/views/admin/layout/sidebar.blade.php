@@ -9,6 +9,7 @@
             'file-alt' => 'Đơn mua khóa học',
         );
         $cake = array(
+            'birthday-cake' => 'Bánh',
             'barcode' => 'Loại bánh',
             'compress' => 'Kích thước bánh',
             'paw' => 'Hình dạng bánh',

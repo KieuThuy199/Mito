@@ -1,4 +1,5 @@
 @include('admin.layout.header')
+
 <section class="container-fluid">
     <div class="row">
         <div class="sidebar" id="sidebarMenu">

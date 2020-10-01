@@ -19,12 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('index', 'UserController\UserController@index');
-// Route::get('/a', function () {
-//     return view('user.index');
-// });
-Route::get('/b', function () {
-    return view('admin.editweb');
+Route::get('/a', function () {
+    return view('admin.newsadd');
 });
-// Route::get('/c', function () {
-//     return view('user.classdetail');
-// });
+Route::get('/b', function () {
+    return view('admin.changeinfor');
+});
+Route::get('/c', function () {
+    return view('admin.index');
+});
+
