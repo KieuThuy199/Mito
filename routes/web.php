@@ -14,18 +14,16 @@ use Illuminate\View\View;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('index', 'UserController\UserController@index');
-Route::get('/a', function () {
-    return view('admin.newsadd');
-});
-Route::get('/b', function () {
-    return view('admin.changeinfor');
-});
-Route::get('/c', function () {
-    return view('admin.index');
-});
+// Route::get('index', 'UserController\UserController@index');
+Route::get('/a', 'WebController\NewsController@index');
+// Route::get('/b', function () {
+//     return view('admin.changeinfor');
+// });
+// Route::get('/c', function () {
+//     return view('admin.login');
+// });
 
