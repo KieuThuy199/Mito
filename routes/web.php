@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +17,10 @@ use Illuminate\View\View;
 //     return view('welcome');
 // });
 
-// Route::get('index', 'UserController\UserController@index');
 Route::get('/a', 'WebController\NewsController@index');
-// Route::get('/b', function () {
-//     return view('admin.changeinfor');
-// });
-// Route::get('/c', function () {
-//     return view('admin.login');
-// });
 
+Route::get('/', function () {
+    return view('admin.news');
+});
+
+Route::get('news.data', ['as' => 'news.data', 'uses' => 'WebController\NewsController@data']);

@@ -8,9 +8,6 @@ use App\Models\News;
 use App\Transformers\NewsTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-
-use function GuzzleHttp\Promise\all;
 
 class NewsController extends Controller
 {
@@ -20,11 +17,12 @@ class NewsController extends Controller
         // return response()->json($news);
         $result = [];
         foreach ($news as $news){
-            array_push($result, (new NewsTransformer)->transform($news));
+            array_push($result, (new NewsTransformer)->transform($news)); // chỉ hiển thị những cột được định nghĩa bên transformer
+            // array_push($result, $news); hiển thị tất cả các cột trong DB
         }
 
         return response()->json([
-            'news_list' => $result,
+            'data' => $result,
             'message'   => 'success'
         ],200);
     }

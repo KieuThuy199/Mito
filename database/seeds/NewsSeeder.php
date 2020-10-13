@@ -12,11 +12,11 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news')->insert([
-            ['img' =>'../img/01_MitoSweets_OnlineClass_03.jpg',
-             'title' => 'Chia sẻ kinh nghiệm làm bánh',
-             'summary' =>'lkjhgfds',
-             'detail' =>'gfgjhgfd'],
-        ]);
+        // DB::table('news')->insert([
+        //     ['img' =>'../img/01_MitoSweets_OnlineClass_03.jpg',
+        //      'title' => 'Chia sẻ kinh nghiệm làm bánh',
+        //      'summary' =>'lkjhgfds',
+        //      'detail' =>'gfgjhgfd'],
+        // ]);
     }
 }

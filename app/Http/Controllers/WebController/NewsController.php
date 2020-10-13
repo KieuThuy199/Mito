@@ -3,46 +3,42 @@
 namespace App\Http\Controllers\WebController;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateNewsRequest;
-use App\Models\News;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Config;
+use Yajra\DataTables\Facades\DataTables;
 
 class NewsController extends Controller
 {
     public function index(){
         return view('admin.newsadd');
     }
+    public function data(Request $request)
+    {
+        $client = new Client();
+        $request = $client->get('http://127.0.0.1:8000'.'/'.sprintf(Config::get('constants.api.API_GET_NEWS')));
+        $db = $request->getBody();
+        // $client = $this->getClient($request);
+        // $response = $client->request('GET', $request.sprintf(Config::get('constants.api.API_GET_NEWS')));
 
-    public function add(CreateNewsRequest $request){
-        // $this->authorize('store', News::class);
-        // DB::beginTransaction();
-        // try {
-        //     $news = new News();
-        //     $news->fill( $request->only(['title', 'link', 'summary', 'detail']));
-        //     $news = News::query()->create($request->except('img'));
-        //     if ($request->img){
-        //         $destinationPath = 'images/news/';
-        //         $newsImage = $news->id. "." . $request->img->getClientOriginalExtension();
-        //         $request->img->move($destinationPath, $newsImage);
-        //         $news->img = $newsImage;
-        //     }
-        //     $news->link = Str::slug('title');
-        //     $news->save();
-        //     DB::commit();
-        //     return response()->json([
-        //         'status' => 'success'
-        //     ],201);
-        // }
-        // catch (\Exception $exception){
-        //     DB::rollBack();
-        //     return response()->json([
-        //         'status'    => 'fails',
-        //         'message'   => $exception->getMessage()
-        //     ],422);
-        // }
+        // $db = $response->getBody();
 
-        return view('admin.newsadd');
+        $config = json_decode($db, true);
+        dd($config);
+
+        // return Datatables::of($config['data'])
+        //     ->addIndexColumn()
+        //     ->addColumn('action', function ($user) {
+        //         return '<button type="button"
+        //                         class="tabledit-edit-button btn btn-warning btn-icon">
+        //                     <span class="fas fa-edit"></span>
+        //                 </button>
+        //                 <button type="button"
+        //                         class="tabledit-delete-button btn btn-primary btn-icon">
+        //                     <span class="fas fa-trash-alt"></span>
+        //                 </button>';
+        //     })
+        //     ->rawColumns(['action'])
+        //     ->make(true);
     }
 }
