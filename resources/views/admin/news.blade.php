@@ -34,6 +34,7 @@
             <th scope="col">Tên tin tức</th>
             <th scope="col">Tóm tắt</th>
             <th scope="col">Nội dung</th>
+            <th scope="col">Chức năng</th>
         </tr>
         </thead>
     </table>

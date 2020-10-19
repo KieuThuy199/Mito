@@ -59,46 +59,26 @@ class NewsController extends Controller
         }
     }
 
-    // public function show(News $news)
-    // {
-    //     return $news;
-    // }
+    public function show(News $news)
+    {
+        // return $news;
+        $this->authorize('show', News::class);
+        // $ingredient_orther = Material::whereDoesntHave('products',function($query) use ($product) {
+        //     $query->where('product_id', $product->id);
+        // })->get();
+        return response()->json([
+            'news'  => (new NewsTransformer)->transform($news),
+        ], 200);
+    }
 
-    // public function update(Request $request, News $news)
-    // {
-    //     return $news->update($request->all());
-    // }
+    public function update(Request $request, News $news)
+    {
+        return $news->update($request->all());
+    }
 
-    // public function destroy(News $news)
-    // {
-    //     $news->delete();
-    // }
-    // public function store(CreateNewsRequest $request){
-    //     $this->authorize('store', News::class);
-    //     DB::beginTransaction();
-    //     try {
-    //         $news = new News();
-    //         $news->fill( $request->only(['title', 'link', 'summary', 'detail']));
-    //         $news = News::query()->create($request->except('img'));
-    //         if ($request->img){
-    //             $destinationPath = 'images/news/';
-    //             $newsImage = $news->id. "." . $request->img->getClientOriginalExtension();
-    //             $request->img->move($destinationPath, $newsImage);
-    //             $news->img = $newsImage;
-    //         }
-    //         $news->link = Str::slug('title');
-    //         $news->save();
-    //         DB::commit();
-    //         return response()->json([
-    //             'status' => 'success'
-    //         ],201);
-    //     }
-    //     catch (\Exception $exception){
-    //         DB::rollBack();
-    //         return response()->json([
-    //             'status'    => 'fails',
-    //             'message'   => $exception->getMessage()
-    //         ],422);
-    //     }
-    // }
+    public function destroy(News $news)
+    {
+        $news->delete();
+    }
+
 }

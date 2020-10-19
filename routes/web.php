@@ -22,5 +22,9 @@ Route::get('/a', 'WebController\NewsController@index');
 Route::get('/', function () {
     return view('admin.news');
 });
-
-Route::get('news.data', ['as' => 'news.data', 'uses' => 'WebController\NewsController@data']);
+// Route::group(
+//     ['namespace' => 'WebController', 'as' => 'news.'],
+//     function () {
+//         Route::get('news.data', ['as' => 'news.data', 'uses' => 'NewsController@data']);
+// });
+Route::get('news-data', 'WebController\NewsController@data');

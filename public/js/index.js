@@ -1,7 +1,11 @@
+$(function () {
+    getData();
+});
+
 function getData() {
     axios({
-        method : 'get',
-        url : 'news.data',
+        method : 'GET',
+        url : 'news-data',
         params : {}
     }).then(function (res) {
         // console.log(res.data.data);
@@ -21,7 +25,7 @@ function getDataTables(data) {
             { data: 'title', name: 'title' },
             { data: 'summary', name: 'summary' },
             { data: 'detail', name: 'detail' },
-            // { data: 'action', name: 'action', orderable: false, searchable: false},
+            { data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 }
