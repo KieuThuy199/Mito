@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('news', 'Api\NewsController');
+// Route::apiResource('news', 'Api\NewsController');
+
+Route::get('news', 'Api\NewsController@index');
+Route::post('news', 'Api\NewsController@store');
+Route::patch('news/edit/{id}', 'Api\NewsController@update');

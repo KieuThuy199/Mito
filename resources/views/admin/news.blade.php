@@ -15,7 +15,7 @@
             <button type="button" class="btn btn-dark">
                 <i class="fas fa-sync-alt"></i>
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='news/add'">
                 <i class="fas fa-plus"></i>
             </button>
             <button type="button" class="btn btn-danger">

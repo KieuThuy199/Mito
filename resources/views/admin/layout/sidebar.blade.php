@@ -25,12 +25,12 @@
     @endphp
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" href="{{ url('/') }}">
                 <i class="fas fa-home"></i>@lang('modules.dashboard.menu.home')<span class="sr-only">(current)</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ url('news')}}">
                 <i class="far fa-newspaper"></i>
                 @lang('modules.dashboard.menu.news')
             </a>
